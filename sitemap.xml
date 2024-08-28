@@ -2,27 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://example.org/tags/functional-programming/</loc>
+    <loc>https://xzerad.github.io/tags/functional-programming/</loc>
     <lastmod>2024-08-28T13:10:48+01:00</lastmod>
   </url><url>
-    <loc>https://example.org/posts/functional-programming/</loc>
+    <loc>https://xzerad.github.io/posts/functional-programming/</loc>
     <lastmod>2024-08-28T13:10:48+01:00</lastmod>
   </url><url>
-    <loc>https://example.org/tags/paradigm/</loc>
+    <loc>https://xzerad.github.io/tags/paradigm/</loc>
     <lastmod>2024-08-28T13:10:48+01:00</lastmod>
   </url><url>
-    <loc>https://example.org/posts/</loc>
+    <loc>https://xzerad.github.io/posts/</loc>
     <lastmod>2024-08-28T13:10:48+01:00</lastmod>
   </url><url>
-    <loc>https://example.org/tags/</loc>
+    <loc>https://xzerad.github.io/tags/</loc>
     <lastmod>2024-08-28T13:10:48+01:00</lastmod>
   </url><url>
-    <loc>https://example.org/</loc>
+    <loc>https://xzerad.github.io/</loc>
     <lastmod>2024-08-28T13:10:48+01:00</lastmod>
   </url><url>
-    <loc>https://example.org/about/</loc>
+    <loc>https://xzerad.github.io/about/</loc>
     <lastmod>2024-08-28T12:18:02+01:00</lastmod>
   </url><url>
-    <loc>https://example.org/categories/</loc>
+    <loc>https://xzerad.github.io/categories/</loc>
   </url>
 </urlset>
