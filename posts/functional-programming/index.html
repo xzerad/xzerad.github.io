@@ -72,6 +72,14 @@
 
 <!-- Open Graph image and Twitter Card metadata -->
 
+  
+    <meta property="og:image" content="/logo.jpg" />
+    <meta name="twitter:image" content="/logo.jpg"/>
+          <meta name="twitter:card" content="summary">
+        <meta property="og:image:width" content="1024">
+        <meta property="og:image:height" content="1024">
+      <meta property="og:image:type" content="image/jpeg">
+  
 <title itemprop="name">Xzerad - Functional Programming</title>
 <meta property="og:title" content=Xzerad&#32;-&#32;Functional&#32;Programming />
 <meta name="twitter:title" content=Xzerad&#32;-&#32;Functional&#32;Programming />
@@ -376,16 +384,16 @@ powered by <a target="_blank" href="https://gohugo.io">Hugo</a> | themed with <a
 <p>This question led me down the rabbit hole of functional programming, and what I discovered completely transformed my approach to coding. To fully grasp the philosophy and power of functional programming, I turned to Grokking Simplicity by Eric Normand. This book was my guide, breaking down complex concepts into practical, understandable insights.</p>
 <p>I quickly realized that functional programming wasn’t just about writing functions. It was about writing code that is cleaner, more predictable, and easier to maintain—traits that are increasingly essential in today’s fast-paced development environment.</p>
 <p>If you’re curious about functional programming or ready to challenge your own assumptions, I highly recommend Grokking Simplicity. It’s not just a book; it’s a mindset shift that can fundamentally change the way you write code.</p>
-<h2 id="what-is-functional-programming"><strong>What is Functional Programming?</strong></h2>
+<h2 id="what-is-functional-programming">What is Functional Programming?</h2>
 <p>Functional Programming (FP) is a programming paradigm that treats computation as the evaluation of mathematical functions. It emphasizes immutability and avoids changing state and mutable data, aiming to produce predictable and reliable code.</p>
-<h3 id="key-goals-of-functional-programming"><strong>Key Goals of Functional Programming</strong></h3>
+<h3 id="key-goals-of-functional-programming">Key Goals of Functional Programming</h3>
 <ul>
 <li><strong>Immutability</strong>: Avoid changing data once it is created.</li>
 <li><strong>Predictability</strong>: Ensure that functions produce the same result given the same input.</li>
 <li><strong>Side Effect Elimination</strong>: Minimize or eliminate actions that alter the program&rsquo;s state or interact with external systems in unpredictable ways.</li>
 </ul>
 <p>In FP, a <strong>side effect</strong> is any operation that depends on or changes external state and can produce different results when executed multiple times. Functions that cause side effects are known as <strong>impure functions</strong>.</p>
-<h3 id="examples-of-side-effects"><strong>Examples of Side Effects</strong></h3>
+<h3 id="examples-of-side-effects">Examples of Side Effects</h3>
 <ul>
 <li>Modifying a Global Variable</li>
 <li>Writing to a File</li>
@@ -450,7 +458,7 @@ A function that adds two numbers is pure because its output is always the same f
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">double</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">multiplier</span>(<span style="color:#ae81ff">2</span>);
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">double</span>(<span style="color:#ae81ff">5</span>)); <span style="color:#75715e">// 10
-</span></span></span></code></pre></div><h2 id="further-reading"><strong>Further Reading</strong></h2>
+</span></span></span></code></pre></div><h2 id="further-reading">Further Reading</h2>
 <p>For those interested in diving deeper into functional programming and related concepts, here are some valuable resources:</p>
 <ul>
 <li>
@@ -484,10 +492,10 @@ A function that adds two numbers is pure because its output is always the same f
       <nav id="TableOfContents">
   <ul>
     <li><a href="#my-journey-from-oop-to-functional-programming">My Journey from OOP to Functional Programming</a></li>
-    <li><a href="#what-is-functional-programming"><strong>What is Functional Programming?</strong></a>
+    <li><a href="#what-is-functional-programming">What is Functional Programming?</a>
       <ul>
-        <li><a href="#key-goals-of-functional-programming"><strong>Key Goals of Functional Programming</strong></a></li>
-        <li><a href="#examples-of-side-effects"><strong>Examples of Side Effects</strong></a></li>
+        <li><a href="#key-goals-of-functional-programming">Key Goals of Functional Programming</a></li>
+        <li><a href="#examples-of-side-effects">Examples of Side Effects</a></li>
         <li><a href="#why-is-reacts-useeffect-named-that-way">Why is React’s useEffect Named That Way?</a></li>
       </ul>
     </li>
@@ -499,7 +507,7 @@ A function that adds two numbers is pure because its output is always the same f
         <li><a href="#4-higher-order-functions">4. Higher-Order Functions:</a></li>
       </ul>
     </li>
-    <li><a href="#further-reading"><strong>Further Reading</strong></a></li>
+    <li><a href="#further-reading">Further Reading</a></li>
   </ul>
 </nav>
     </div>
