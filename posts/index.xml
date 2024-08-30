@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on xzerad&#39;s blog</title>
-    <link>https://xzerad.github.io/posts/</link>
+    <link>http://localhost:1313/posts/</link>
     <description>Recent content in Posts on xzerad&#39;s blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 28 Aug 2024 13:10:48 +0100</lastBuildDate>
-    <atom:link href="https://xzerad.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Functional Programming</title>
-      <link>https://xzerad.github.io/posts/functional-programming/</link>
+      <link>http://localhost:1313/posts/functional-programming/</link>
       <pubDate>Wed, 28 Aug 2024 13:10:48 +0100</pubDate>
-      <guid>https://xzerad.github.io/posts/functional-programming/</guid>
+      <guid>http://localhost:1313/posts/functional-programming/</guid>
       <description>My Journey from OOP to Functional Programming When I first started coding, I was firmly rooted in object-oriented programming (OOP). Like many novice developers, I believed that functional programming was simply about using functions instead of objects and methods—a relic of the past, overshadowed by the dominance of OOP in modern frameworks. After all, everywhere I looked, it seemed like OOP was the gold standard, with most frameworks heavily relying on its principles.</description>
     </item>
   </channel>
