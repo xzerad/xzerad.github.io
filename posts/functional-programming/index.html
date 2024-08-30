@@ -331,7 +331,7 @@ powered by <a target="_blank" href="https://gohugo.io">Hugo</a> | themed with <a
           
         
 
-        <span>3 mins read</span>
+        <span>5 mins read</span>
       </span>
     </div>
 
@@ -363,40 +363,93 @@ powered by <a target="_blank" href="https://gohugo.io">Hugo</a> | themed with <a
 <p>This question led me down the rabbit hole of functional programming, and what I discovered completely transformed my approach to coding. To fully grasp the philosophy and power of functional programming, I turned to Grokking Simplicity by Eric Normand. This book was my guide, breaking down complex concepts into practical, understandable insights.</p>
 <p>I quickly realized that functional programming wasn’t just about writing functions. It was about writing code that is cleaner, more predictable, and easier to maintain—traits that are increasingly essential in today’s fast-paced development environment.</p>
 <p>If you’re curious about functional programming or ready to challenge your own assumptions, I highly recommend Grokking Simplicity. It’s not just a book; it’s a mindset shift that can fundamentally change the way you write code.</p>
-<h2 id="what-is-functional-programming">What is Functional Programming?</h2>
-<p>Functional programming is a paradigm that treats computation as the evaluation of mathematical functions and avoids changing state and mutable data. This approach helps in writing code that is more predictable and easier to reason about.</p>
+<h2 id="what-is-functional-programming"><strong>What is Functional Programming?</strong></h2>
+<p>Functional Programming (FP) is a programming paradigm that treats computation as the evaluation of mathematical functions. It emphasizes immutability and avoids changing state and mutable data, aiming to produce predictable and reliable code.</p>
+<h3 id="key-goals-of-functional-programming"><strong>Key Goals of Functional Programming</strong></h3>
+<ul>
+<li><strong>Immutability</strong>: Avoid changing data once it is created.</li>
+<li><strong>Predictability</strong>: Ensure that functions produce the same result given the same input.</li>
+<li><strong>Side Effect Elimination</strong>: Minimize or eliminate actions that alter the program&rsquo;s state or interact with external systems in unpredictable ways.</li>
+</ul>
+<p>In FP, a <strong>side effect</strong> is any operation that depends on or changes external state and can produce different results when executed multiple times. Functions that cause side effects are known as <strong>impure functions</strong>.</p>
+<h3 id="examples-of-side-effects"><strong>Examples of Side Effects</strong></h3>
+<ul>
+<li>Modifying a Global Variable</li>
+<li>Writing to a File</li>
+<li>Modifying a mutable Data Structure</li>
+<li>Printing to the Console</li>
+<li>Changing the State of an Object</li>
+<li>Network Requests</li>
+</ul>
+<p>But Aren&rsquo;t Side Effects Essential?</p>
+<p>While functional programming strives to minimize side effects, it&rsquo;s important to recognize that side effects are often necessary to achieve real-world functionality. Programs are created to perform useful tasks, and many of these tasks involve interacting with external systems, like reading files or handling user input.</p>
+<p><strong>The Goal of FP</strong>: The aim isn&rsquo;t to eliminate all side effects but to manage them carefully and limit their impact on the predictability and reliability of the code. By isolating side effects within controlled areas of the code, FP helps ensure that the core logic remains clean, testable, and robust.</p>
+<h3 id="why-is-reacts-useeffect-named-that-way">Why is React’s useEffect Named That Way?</h3>
+<p>The name useEffect highlights its role in managing side effects. It helps keep them under control and ensures they’re handled in a way that maintains the predictability and reliability of your components. Essentially, it’s about ensuring that effects are used wisely and don’t disrupt your app’s core functionality.</p>
 <blockquote>
 <p>&ldquo;In functional programming, the idea is to express your problem as a combination of simple, stateless functions that are easier to understand, test, and maintain.&rdquo; — Grokking Simplicity</p>
 </blockquote>
 <h2 id="the-core-ideas-of-functional-programming">The Core Ideas of Functional Programming</h2>
-<ol>
-<li>Pure Functions:
-A pure function is a function where the output is determined only by its input values, without observable side effects.</li>
-</ol>
-<blockquote>
+<h3 id="1-pure-functions">1. Pure Functions:</h3>
+<p>A pure function is a function where the output is determined only by its input values, without observable side effects.</p>
+<p><strong>Example</strong>:
+A function that adds two numbers is pure because its output is always the same for the same inputs and does not modify any external state.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">a</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">b</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><blockquote>
 <p>&ldquo;A pure function is like a vending machine that gives you the same candy every time you press the button.&rdquo; — Grokking Simplicity</p>
 </blockquote>
-<ol start="2">
-<li>Immutability:
-Immutability means that once a data structure is created, it cannot be changed. This leads to safer code as it prevents accidental mutations that can cause bugs.</li>
-</ol>
+<h3 id="2-immutability">2. Immutability:</h3>
+<p>Immutability means that once a data structure is created, it cannot be changed. This leads to safer code as it prevents accidental mutations that can cause bugs.</p>
+<p><strong>Example</strong>: Instead of modifying an array, you create a new one with the desired changes.</p>
 <blockquote>
 <p>&ldquo;Immutability is the idea that once you create a value, you can&rsquo;t change it. It&rsquo;s like writing in ink instead of pencil.&rdquo; — Grokking Simplicity</p>
 </blockquote>
-<ol start="3">
-<li>First-Class Functions:
-Functions in FP are first-class citizens, meaning they can be passed as arguments, returned from other functions, and assigned to variables.</li>
-</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">numbers</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">newNumbers</span> <span style="color:#f92672">=</span> [...<span style="color:#a6e22e">numbers</span>, <span style="color:#ae81ff">4</span>]; <span style="color:#75715e">// [1, 2, 3, 4]
+</span></span></span></code></pre></div><h3 id="3-first-class-functions">3. First-Class Functions:</h3>
+<p>Functions in FP are first-class citizens, meaning they can be passed as arguments, returned from other functions, and assigned to variables.</p>
 <blockquote>
 <p>&ldquo;Treating functions as first-class means we can build abstractions, making our code more flexible and reusable.&rdquo; — Grokking Simplicity</p>
 </blockquote>
-<ol start="4">
-<li>Higher-Order Functions:
-A higher-order function is a function that takes one or more functions as arguments or returns a function as its result.</li>
-</ol>
+<p><strong>Example</strong>: Passing a function as an argument.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">greet</span>(<span style="color:#a6e22e">name</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#e6db74">`Hello, </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">name</span><span style="color:#e6db74">}</span><span style="color:#e6db74">!`</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">processGreeting</span>(<span style="color:#a6e22e">func</span>, <span style="color:#a6e22e">name</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">func</span>(<span style="color:#a6e22e">name</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">processGreeting</span>(<span style="color:#a6e22e">greet</span>, <span style="color:#e6db74">&#34;Alice&#34;</span>)); <span style="color:#75715e">// Hello, Alice!
+</span></span></span></code></pre></div><h3 id="4-higher-order-functions">4. Higher-Order Functions:</h3>
+<p>A higher-order function is a function that takes one or more functions as arguments or returns a function as its result.</p>
 <blockquote>
 <p>&ldquo;Higher-order functions allow us to create powerful abstractions and compose complex behaviors from simpler ones.&rdquo; — Grokking Simplicity</p>
 </blockquote>
+<p><strong>Example</strong>: A function that returns another function.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">multiplier</span>(<span style="color:#a6e22e">factor</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">x</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">x</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">factor</span>;
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">double</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">multiplier</span>(<span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#66d9ef">double</span>(<span style="color:#ae81ff">5</span>)); <span style="color:#75715e">// 10
+</span></span></span></code></pre></div><h2 id="further-reading"><strong>Further Reading</strong></h2>
+<p>For those interested in diving deeper into functional programming and related concepts, here are some valuable resources:</p>
+<ul>
+<li>
+<p><a href="https://www.oreilly.com/library/view/grokking-simplicity/9781617296208/" target="_blank"><em>Grokking Simplicity</em> by Eric Normand</a>: A comprehensive guide that breaks down functional programming principles in a clear and practical manner. This book was instrumental in my journey to understanding FP.</p>
+</li>
+<li>
+<p><a href="https://eloquentjavascript.net/" target="_blank"><em>Eloquent JavaScript</em> by Marijn Haverbeke</a>: A widely acclaimed book that includes chapters on functional programming concepts, making it a great resource for JavaScript developers.</p>
+</li>
+<li>
+<p><a href="https://react.dev/reference/rules" target="_blank">The official React documentation on Rules of React</a>: Provides in-depth information about React Hooks, including <code>useEffect</code>, which helps manage side effects in functional components.</p>
+</li>
+</ul>
 
   
   <hr>
@@ -418,8 +471,22 @@ A higher-order function is a function that takes one or more functions as argume
       <nav id="TableOfContents">
   <ul>
     <li><a href="#my-journey-from-oop-to-functional-programming">My Journey from OOP to Functional Programming</a></li>
-    <li><a href="#what-is-functional-programming">What is Functional Programming?</a></li>
-    <li><a href="#the-core-ideas-of-functional-programming">The Core Ideas of Functional Programming</a></li>
+    <li><a href="#what-is-functional-programming"><strong>What is Functional Programming?</strong></a>
+      <ul>
+        <li><a href="#key-goals-of-functional-programming"><strong>Key Goals of Functional Programming</strong></a></li>
+        <li><a href="#examples-of-side-effects"><strong>Examples of Side Effects</strong></a></li>
+        <li><a href="#why-is-reacts-useeffect-named-that-way">Why is React’s useEffect Named That Way?</a></li>
+      </ul>
+    </li>
+    <li><a href="#the-core-ideas-of-functional-programming">The Core Ideas of Functional Programming</a>
+      <ul>
+        <li><a href="#1-pure-functions">1. Pure Functions:</a></li>
+        <li><a href="#2-immutability">2. Immutability:</a></li>
+        <li><a href="#3-first-class-functions">3. First-Class Functions:</a></li>
+        <li><a href="#4-higher-order-functions">4. Higher-Order Functions:</a></li>
+      </ul>
+    </li>
+    <li><a href="#further-reading"><strong>Further Reading</strong></a></li>
   </ul>
 </nav>
     </div>
