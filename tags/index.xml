@@ -6,8 +6,29 @@
     <description>Recent content in Tags on xzerad&#39;s blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 05 Sep 2024 08:52:07 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 05 Sep 2024 14:50:24 +0100</lastBuildDate>
     <atom:link href="https://xzerad.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bash</title>
+      <link>https://xzerad.github.io/tags/bash/</link>
+      <pubDate>Thu, 05 Sep 2024 14:50:24 +0100</pubDate>
+      <guid>https://xzerad.github.io/tags/bash/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Networking</title>
+      <link>https://xzerad.github.io/tags/networking/</link>
+      <pubDate>Thu, 05 Sep 2024 14:50:24 +0100</pubDate>
+      <guid>https://xzerad.github.io/tags/networking/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SysAdmin</title>
+      <link>https://xzerad.github.io/tags/sysadmin/</link>
+      <pubDate>Thu, 05 Sep 2024 14:50:24 +0100</pubDate>
+      <guid>https://xzerad.github.io/tags/sysadmin/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Data Engineering</title>
       <link>https://xzerad.github.io/tags/data-engineering/</link>

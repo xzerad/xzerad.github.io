@@ -6,8 +6,15 @@
     <description>Recent content in Posts on xzerad&#39;s blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 05 Sep 2024 08:52:07 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 05 Sep 2024 14:50:24 +0100</lastBuildDate>
     <atom:link href="https://xzerad.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SSH: Because Sometimes You Just Need to Yell at a Server from Afar</title>
+      <link>https://xzerad.github.io/posts/ssh-because-sometimes-you-just-need-to-yell-at-a-server-from-afar/</link>
+      <pubDate>Thu, 05 Sep 2024 14:50:24 +0100</pubDate>
+      <guid>https://xzerad.github.io/posts/ssh-because-sometimes-you-just-need-to-yell-at-a-server-from-afar/</guid>
+      <description>Introduction Imagine this:&#xA;You’re relaxing at home, maybe in your pajamas, and you suddenly realize your server needs a quick fix. What if you could handle it without leaving your spot? That’s where SSH (Secure Shell) comes into play.&#xA;Think of SSH as a magic remote control for your server. It lets you send commands to your server from anywhere, just like sending a text message. You don’t need to be physically close—SSH makes it possible to manage your server from your couch, your office, or even from another country.</description>
+    </item>
     <item>
       <title>Looping in Pandas DataFrames: A Common Mistake</title>
       <link>https://xzerad.github.io/posts/looping-pandas-dataframes-common-mistake/</link>
