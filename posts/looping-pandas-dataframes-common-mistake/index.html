@@ -494,11 +494,10 @@ This converts each row of the DataFrame into a dictionary, with each dictionary 
 </span></span></code></pre></div><h2 id="benchmarking-loop-methods">Benchmarking Loop Methods</h2>
 <p>Someone on Stack Overflow created a benchmark comparing different looping methods in pandas. You can see the benchmark image below for a visual representation of the performance differences. The key takeaway from the benchmark is:</p>
 <p><strong>never use <code>iterrows</code></strong>. 😄</p>
-<h3 id="benchmark-image">Benchmark Image</h3>
 <p><img src="/images/pandas-loop-benchmark.png" alt="Benchmark Image"></p>
+<p>This benchmark is like a reality check for anyone still using <code>iterrows</code>—it’s slow, it’s clunky, and it’s definitely not invited to the performance party. So, take a peek and see why you should be ditching those old-school loops in favor of faster, more efficient methods. Your code (and your sanity) will thank you!</p>
 <h3 id="further-reading">Further Reading</h3>
 <p>For more details and the full discussion, check out the <a href="https://stackoverflow.com/questions/16476924/how-can-i-iterate-over-rows-in-a-pandas-dataframe/55557758#55557758" target="_blank">Stack Overflow thread</a>.</p>
-<p>This benchmark is like a reality check for anyone still using <code>iterrows</code>—it’s slow, it’s clunky, and it’s definitely not invited to the performance party. So, take a peek and see why you should be ditching those old-school loops in favor of faster, more efficient methods. Your code (and your sanity) will thank you!</p>
 
   
   <hr>
@@ -538,7 +537,6 @@ This converts each row of the DataFrame into a dictionary, with each dictionary 
     </li>
     <li><a href="#benchmarking-loop-methods">Benchmarking Loop Methods</a>
       <ul>
-        <li><a href="#benchmark-image">Benchmark Image</a></li>
         <li><a href="#further-reading">Further Reading</a></li>
       </ul>
     </li>
