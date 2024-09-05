@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on xzerad&#39;s blog</title>
-    <link>https://xzerad.github.io/posts/</link>
-    <description>Recent content in Posts on xzerad&#39;s blog</description>
+    <title>Python on xzerad&#39;s blog</title>
+    <link>https://xzerad.github.io/tags/python/</link>
+    <description>Recent content in Python on xzerad&#39;s blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 05 Sep 2024 08:52:07 +0100</lastBuildDate>
-    <atom:link href="https://xzerad.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://xzerad.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Looping in Pandas DataFrames: A Common Mistake</title>
       <link>https://xzerad.github.io/posts/looping-pandas-dataframes-common-mistake/</link>
       <pubDate>Thu, 05 Sep 2024 08:52:07 +0100</pubDate>
       <guid>https://xzerad.github.io/posts/looping-pandas-dataframes-common-mistake/</guid>
       <description>Introduction If you’ve just started in the data engineering field, you’ve probably used the pandas library—a powerful tool that lets you read structured data from various sources and formats, perform calculations, and export it to different formats. What more could you wish for? But when working on small datasets, we often don’t pay attention to performance. We write a script that does what we need, test it on a small dataset, and everything works perfectly.</description>
-    </item>
-    <item>
-      <title>Functional Programming</title>
-      <link>https://xzerad.github.io/posts/functional-programming/</link>
-      <pubDate>Wed, 28 Aug 2024 13:10:48 +0100</pubDate>
-      <guid>https://xzerad.github.io/posts/functional-programming/</guid>
-      <description>My Journey from OOP to Functional Programming When I first started coding, I was firmly rooted in object-oriented programming (OOP). Like many novice developers, I believed that functional programming was simply about using functions instead of objects and methods—a relic of the past, overshadowed by the dominance of OOP in modern frameworks. After all, everywhere I looked, it seemed like OOP was the gold standard, with most frameworks heavily relying on its principles.</description>
     </item>
   </channel>
 </rss>

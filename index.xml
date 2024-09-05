@@ -6,8 +6,15 @@
     <description>Recent content on xzerad&#39;s blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 28 Aug 2024 13:10:48 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 05 Sep 2024 08:52:07 +0100</lastBuildDate>
     <atom:link href="https://xzerad.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Looping in Pandas DataFrames: A Common Mistake</title>
+      <link>https://xzerad.github.io/posts/looping-pandas-dataframes-common-mistake/</link>
+      <pubDate>Thu, 05 Sep 2024 08:52:07 +0100</pubDate>
+      <guid>https://xzerad.github.io/posts/looping-pandas-dataframes-common-mistake/</guid>
+      <description>Introduction If you’ve just started in the data engineering field, you’ve probably used the pandas library—a powerful tool that lets you read structured data from various sources and formats, perform calculations, and export it to different formats. What more could you wish for? But when working on small datasets, we often don’t pay attention to performance. We write a script that does what we need, test it on a small dataset, and everything works perfectly.</description>
+    </item>
     <item>
       <title>Functional Programming</title>
       <link>https://xzerad.github.io/posts/functional-programming/</link>

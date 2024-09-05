@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+<head>
+    
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+<script defer language="javascript" type="text/javascript" src="/js/bundle.min.145453261a7755f5042a854c4213501d215a8fbe34c08d181c40f803f1315e74.js"></script>
+
+
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-637QWE2PQ5"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-637QWE2PQ5');
+</script>
+
+
+
+  
+
+
+
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+    <link rel="icon" href=/images/favicon.ico>
+
+    
+    
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+  
+
+
+<!-- Open Graph image and Twitter Card metadata -->
+
+  
+    <meta property="og:image" content="/logo.jpg" />
+    <meta name="twitter:image" content="/logo.jpg"/>
+          <meta name="twitter:card" content="summary">
+        <meta property="og:image:width" content="1024">
+        <meta property="og:image:height" content="1024">
+      <meta property="og:image:type" content="image/jpeg">
+  
+<title itemprop="name">Xzerad - Looping in Pandas DataFrames: A Common Mistake</title>
+<meta property="og:title" content=Xzerad&#32;-&#32;Looping&#32;in&#32;Pandas&#32;DataFrames:&#32;A&#32;Common&#32;Mistake />
+<meta name="twitter:title" content=Xzerad&#32;-&#32;Looping&#32;in&#32;Pandas&#32;DataFrames:&#32;A&#32;Common&#32;Mistake />
+<meta itemprop="name" content=Xzerad&#32;-&#32;Looping&#32;in&#32;Pandas&#32;DataFrames:&#32;A&#32;Common&#32;Mistake />
+<meta name="application-name" content=Xzerad&#32;-&#32;Looping&#32;in&#32;Pandas&#32;DataFrames:&#32;A&#32;Common&#32;Mistake />
+<meta property="og:site_name" content="xzerad&#39;s blog" />
+
+
+<meta name="description" content="" />
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
+
+
+<base href="https://xzerad.github.io/posts/looping-pandas-dataframes-common-mistake/" />
+<link rel="canonical" href="https://xzerad.github.io/posts/looping-pandas-dataframes-common-mistake/" itemprop="url" />
+<meta name="url" content="https://xzerad.github.io/posts/looping-pandas-dataframes-common-mistake/" />
+<meta name="twitter:url" content="https://xzerad.github.io/posts/looping-pandas-dataframes-common-mistake/" />
+<meta property="og:url" content="https://xzerad.github.io/posts/looping-pandas-dataframes-common-mistake/" />
+
+
+<meta property="og:updated_time" content="2024-09-05T08:52:07&#43;01:00" />
+
+
+<link rel="sitemap" type="application/xml" title="Sitemap" href='https://xzerad.github.io/sitemap.xml' />
+
+<meta name="robots" content="index,follow" />
+<meta name="googlebot" content="index,follow" />
+
+
+
+<meta property="fb:admins" content="" />
+
+
+<meta name="apple-mobile-web-app-title" content="xzerad&#39;s blog" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.133.1">
+
+
+    
+    
+
+<link type="text/css" rel="stylesheet" href="/css/bundle.min.94a339836f89f0d25f31980cb6b0631da21e20af128308747ce44e0525eb16ef.css">
+
+
+    
+    <style>
+    body {
+        --sidebar-bg-color: #202020;
+        --sidebar-img-border-color: #515151;
+        --sidebar-p-color: #909090;
+        --sidebar-h1-color: #FFF;
+        --sidebar-a-color: #FFF;
+        --sidebar-socials-color: #FFF;
+        --text-color: #222;
+        --bkg-color: #FAF9F6;
+        --post-title-color: #303030;
+        --list-color: #5a5a5a;
+        --link-color: #268bd2;
+        --date-color: #515151;
+        --table-border-color: #E5E5E5;
+        --table-stripe-color: #F9F9F9;
+        --code-color: #000;
+        --code-background-color: #E5E5E5;
+        --code-block-color: #fff;
+        --code-block-background-color: #272822;
+        --moon-sun-color: #FFF;
+        --moon-sun-background-color: #515151;
+    }
+    body.dark-theme {
+        --text-color: #eee;
+        --bkg-color: #121212;
+        --post-title-color: #DBE2E9;
+        --list-color: #9d9d9d;
+        --link-color: #268bd2;
+        --date-color: #9a9a9a;
+        --table-border-color: #515151;
+        --table-stripe-color: #202020;
+        --code-color: #fff;
+        --code-background-color: #515151;
+        --code-block-color: #fff;
+        --code-block-background-color: #272822;
+    }
+    body {
+        background-color: var(--bkg-color);
+    }
+</style>
+
+</head>
+
+    <body class="dark-theme">
+        <div class="wrapper">
+            <aside class="sidebar">
+    <div class="container sidebar-sticky">
+        <div class="light-dark" align="right">
+    <button class="btn-light-dark" title="Toggle light/dark mode">
+        <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16">
+            <path fill="currentColor" d="M6 .278a.768.768 0 0 1 .08.858a7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277c.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316a.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71C0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+        </svg>
+        <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16">
+            <path fill="currentColor" d="M8 12a4 4 0 1 0 0-8a4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+        </svg>
+    </button>
+</div>
+
+        <div class="sidebar-about">
+    <h1 class="brand">
+        
+            <a href="https://xzerad.github.io/">
+                <img src="/images/logo.jpg" alt="brand image">
+            </a>
+        
+        
+            <a href="https://xzerad.github.io/">
+                <h1>Xzerad</h1>
+            </a>
+        
+    </h1>
+    <p class="lead">
+    Tech wizard 🧙‍♂️ obsessed with new gadgets and sharing geeky tips 💾✨
+    </p>
+</div>
+
+        <nav>
+    <ul class="sidebar-nav">
+
+        
+        
+        
+        
+            
+
+            
+                
+                
+                    <li class="heading">
+                        <a href="/about/">About</a>
+                    </li>
+                    
+                
+            
+                
+                
+            
+            
+                
+                
+            
+                
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+            
+        
+        
+            
+
+            
+                
+                
+            
+                
+                
+                    <li class="heading">
+                        <a href="/posts/">Posts</a>
+                    </li>
+                    
+                        <li class="sub-heading">
+                            Recent
+                        </li>
+                        
+                            <li class="bullet">
+                                <a href="https://xzerad.github.io/posts/looping-pandas-dataframes-common-mistake/">Looping in Pandas DataFrames: A Common Mistake</a>
+                            </li>
+                        
+                            <li class="bullet">
+                                <a href="https://xzerad.github.io/posts/functional-programming/">Functional Programming</a>
+                            </li>
+                        
+                    
+                
+            
+            
+                
+                
+            
+                
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+            
+        
+
+    </ul>
+</nav>
+
+        
+    <a target="_blank" class="social" title="GitHub" href="https://github.com/xzerad">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="-2 -2 24 24">
+            <path fill="currentColor" d="M18.88 1.099C18.147.366 17.265 0 16.233 0H3.746C2.714 0 1.832.366 1.099 1.099C.366 1.832 0 2.714 0 3.746v12.487c0 1.032.366 1.914 1.099 2.647c.733.733 1.615 1.099 2.647 1.099H6.66c.19 0 .333-.007.429-.02a.504.504 0 0 0 .286-.169c.095-.1.143-.245.143-.435l-.007-.885c-.004-.564-.006-1.01-.006-1.34l-.3.052c-.19.035-.43.05-.721.046a5.555 5.555 0 0 1-.904-.091a2.026 2.026 0 0 1-.872-.39a1.651 1.651 0 0 1-.572-.8l-.13-.3a3.25 3.25 0 0 0-.41-.663c-.186-.243-.375-.407-.566-.494l-.09-.065a.956.956 0 0 1-.17-.156a.723.723 0 0 1-.117-.182c-.026-.061-.004-.111.065-.15c.07-.04.195-.059.378-.059l.26.04c.173.034.388.138.643.311a2.1 2.1 0 0 1 .631.677c.2.355.44.626.722.813c.282.186.566.28.852.28c.286 0 .533-.022.742-.065a2.59 2.59 0 0 0 .585-.196c.078-.58.29-1.028.637-1.34a8.907 8.907 0 0 1-1.333-.234a5.314 5.314 0 0 1-1.223-.507a3.5 3.5 0 0 1-1.047-.872c-.277-.347-.505-.802-.683-1.365c-.177-.564-.266-1.215-.266-1.952c0-1.049.342-1.942 1.027-2.68c-.32-.788-.29-1.673.091-2.652c.252-.079.625-.02 1.119.175c.494.195.856.362 1.086.5c.23.14.414.257.553.352a9.233 9.233 0 0 1 2.497-.338c.859 0 1.691.113 2.498.338l.494-.312a6.997 6.997 0 0 1 1.197-.572c.46-.174.81-.221 1.054-.143c.39.98.424 1.864.103 2.653c.685.737 1.028 1.63 1.028 2.68c0 .737-.089 1.39-.267 1.957c-.177.568-.407 1.023-.689 1.366a3.65 3.65 0 0 1-1.053.865c-.42.234-.828.403-1.223.507a8.9 8.9 0 0 1-1.333.235c.45.39.676 1.005.676 1.846v3.11c0 .147.021.266.065.357a.36.36 0 0 0 .208.189c.096.034.18.056.254.064c.074.01.18.013.318.013h2.914c1.032 0 1.914-.366 2.647-1.099c.732-.732 1.099-1.615 1.099-2.647V3.746c0-1.032-.367-1.914-1.1-2.647z"/>
+        </svg>
+    </a>
+
+
+
+    <a target="_blank" class="social" title="LinkedIn" href="https://linkedin.com/in/radhouan-chaieb">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1.2em" viewBox="0 0 448 512">
+            <path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5c0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7c-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5c67.2 0 79.7 44.3 79.7 101.9V416z"/>
+        </svg>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a target="_blank" class="social" title="Email" href="mailto://8mycei1c5@mozmail.com">
+       <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1.2em" viewBox="0 0 485.211 485.211">
+            <path fill="currentColor" d="M301.393,241.631L464.866,424.56H20.332l163.474-182.928l58.801,51.443L301.393,241.631z M462.174,60.651H23.027 l219.579,192.142L462.174,60.651z M324.225,221.67l160.986,180.151V80.792L324.225,221.67z M0,80.792v321.029L160.972,221.64 L0,80.792z"/>
+       </svg>
+    </a>
+
+
+
+
+        <p class="footnote">
+powered by <a target="_blank" href="https://gohugo.io">Hugo</a> | themed with <a target="_blank" href="https://github.com/lukeorth/poison">poison</a>
+    <br>
+    &copy; 2024 xzerad&#39;s blog. All rights reserved.
+</p>
+
+  </div>
+</aside>
+
+            <main class="content container">
+                <div class="post">
+  <div class="info">
+  <h1 class="post-title">
+    <a href="https://xzerad.github.io/posts/looping-pandas-dataframes-common-mistake/">Looping in Pandas DataFrames: A Common Mistake</a>
+  </h1>
+
+  <div class="headline">
+    <div>
+      
+      
+      <time datetime=" 2024-09-05T08:52:07&#43;0100" class="post-date">
+        September 5, 2024
+      </time>
+      
+      <span> - </span>
+      <span class="reading-time">
+        
+          
+        
+
+        <span>5 mins read</span>
+      </span>
+    </div>
+
+    
+    <ul class="tags">
+      
+      <li class="tag-Data Engineering">
+        <a href="https://xzerad.github.io/tags/data-engineering">Data Engineering</a>
+      </li>
+      
+      <li class="tag-Pandas">
+        <a href="https://xzerad.github.io/tags/pandas">Pandas</a>
+      </li>
+      
+      <li class="tag-Python">
+        <a href="https://xzerad.github.io/tags/python">Python</a>
+      </li>
+      
+    </ul>
+    
+  </div>
+
+  
+  
+
+  
+</div>
+
+  <h2 id="introduction">Introduction</h2>
+<p>If you’ve just started in the data engineering field, you’ve probably used the pandas library—a powerful tool that lets you read structured data from various sources and formats, perform calculations, and export it to different formats. What more could you wish for? But when working on small datasets, we often don’t pay attention to performance. We write a script that does what we need, test it on a small dataset, and everything works perfectly. Then we run it on a huge dataset—probably on a Friday—head home expecting it to work just as smoothly. But then you come back on Monday and… surprise! The script is still running. 😬</p>
+<p>From the logs (if you’re lucky enough to have them), you find out it’s stuck in a loop. Sound familiar? It happened to me, and it’s happened to hundreds of other people too. So, I’m writing this article to save you time and show you how to loop through a DataFrame efficiently.</p>
+<h2 id="the-problem-with-loops-in-pandas">The Problem with Loops in Pandas</h2>
+<p>Loops, such as <code>for</code> and <code>while</code>, are commonly used to perform repetitive tasks. However, when applied to pandas DataFrames, especially on large datasets, loops can drastically slow down the processing speed. Let’s explore why.</p>
+<h3 id="example-looping-over-rows">Example: Looping Over Rows</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Sample DataFrame</span>
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;Name&#39;</span>: [<span style="color:#e6db74">&#39;Alice&#39;</span>, <span style="color:#e6db74">&#39;Bob&#39;</span>, <span style="color:#e6db74">&#39;Charlie&#39;</span>],
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;Age&#39;</span>: [<span style="color:#ae81ff">25</span>, <span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">35</span>]}
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(data)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Looping through rows</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> index, row <span style="color:#f92672">in</span> df<span style="color:#f92672">.</span>iterrows():
+</span></span><span style="display:flex;"><span>    print(row[<span style="color:#e6db74">&#39;Name&#39;</span>], row[<span style="color:#e6db74">&#39;Age&#39;</span>])
+</span></span></code></pre></div><p>You might look at this and think, “Hey, that’s fine, what’s the problem?” But on larger DataFrames, this is basically turning your code into a turtle race. Each row gets converted into a pandas Series object, and things get sluggish real quick.</p>
+<h3 id="timing-the-loop">Timing the Loop</h3>
+<p>To measure the duration of a loop, you can use a simple time calculation with the <code>time</code> module.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> time
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>start_time <span style="color:#f92672">=</span> time<span style="color:#f92672">.</span>time()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Your loop here</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Execution time: </span><span style="color:#e6db74">{</span>time<span style="color:#f92672">.</span>time() <span style="color:#f92672">-</span> start_time<span style="color:#e6db74">}</span><span style="color:#e6db74"> seconds&#34;</span>)
+</span></span></code></pre></div><p>For more precise measurements, the <code>timeit</code> module is an excellent tool, though it is beyond the scope of this article.
+You can find more information about the <code>timeit</code> module in the <a href="https://docs.python.org/3/library/timeit.html" target="_blank">official documentation</a>.</p>
+<h2 id="better-alternatives-to-loops-aka-how-to-be-fast-and-efficient">Better Alternatives to Loops (a.k.a. How to Be Fast and Efficient)</h2>
+<p>Here’s where we get to the good stuff—pandas has some built-in superpowers that make looping totally unnecessary. Let’s check out some ways to kick loops to the curb and give your code the speed boost it deserves.</p>
+<h3 id="1-vectorization">1. Vectorization</h3>
+<p>The best alternative is to use pandas&rsquo; built-in vectorized operations. These are optimized for performance and avoid the overhead of Python loops.</p>
+<p><strong>Example: Using Vectorized Operations</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Add 5 to the Age column without a loop</span>
+</span></span><span style="display:flex;"><span>df[<span style="color:#e6db74">&#39;Age&#39;</span>] <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;Age&#39;</span>] <span style="color:#f92672">+</span> <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>print(df)
+</span></span></code></pre></div><p>Boom. Done. One line. No loops, no fuss. This is like getting your morning coffee delivered to your desk while everyone else is still waiting in line.</p>
+<p>But what if you need to perform complex calculations and not just add or subtract values?
+Good question!</p>
+<p>Say hello to <code>numpy.vectorize</code>.</p>
+<p><code>numpy.vectorize</code> allows you to apply a function element-wise to arrays, which can be very useful for complex operations on a pandas DataFrame.</p>
+<p><strong>Example: Using <code>numpy.vectorize</code> with Pandas DataFrame</strong></p>
+<p>Let’s say we want to apply a custom function to each element in a DataFrame. Here’s how you can do it using <code>numpy.vectorize</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Sample DataFrame</span>
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;Value&#39;</span>: [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>]}
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(data)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Define a custom function</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">complex_calculation</span>(x):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> x <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">*</span> x <span style="color:#f92672">+</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Vectorize the custom function</span>
+</span></span><span style="display:flex;"><span>vectorized_func <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>vectorize(complex_calculation)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Apply the vectorized function to the DataFrame column</span>
+</span></span><span style="display:flex;"><span>df[<span style="color:#e6db74">&#39;Calculated&#39;</span>] <span style="color:#f92672">=</span> vectorized_func(df[<span style="color:#e6db74">&#39;Value&#39;</span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(df)
+</span></span></code></pre></div><h3 id="2-apply-function">2. Apply Function</h3>
+<p>If vectorization feels like overkill for what you’re doing, then apply() is your next best friend.
+It’s still faster than looping and lets you apply a function to each element in a column or row.</p>
+<p><strong>Example: Using apply()</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Apply function to increase age (but still avoid the loop!)</span>
+</span></span><span style="display:flex;"><span>df[<span style="color:#e6db74">&#39;Age&#39;</span>] <span style="color:#f92672">=</span> df[<span style="color:#e6db74">&#39;Age&#39;</span>]<span style="color:#f92672">.</span>apply(<span style="color:#66d9ef">lambda</span> x: x <span style="color:#f92672">+</span> <span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span>print(df)
+</span></span></code></pre></div><h3 id="3-list-comprehension">3. List Comprehension</h3>
+<p>If you’re into that whole Pythonic style, list comprehensions are your jam.
+They’re cleaner, faster, and you still get to feel like you’re in control.</p>
+<p><strong>Example: List Comprehension Magic</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Creating a new list for the Age column (like a boss)</span>
+</span></span><span style="display:flex;"><span>new_ages <span style="color:#f92672">=</span> [age <span style="color:#f92672">+</span> <span style="color:#ae81ff">5</span> <span style="color:#66d9ef">for</span> age <span style="color:#f92672">in</span> df[<span style="color:#e6db74">&#39;Age&#39;</span>]]
+</span></span><span style="display:flex;"><span>df[<span style="color:#e6db74">&#39;Age&#39;</span>] <span style="color:#f92672">=</span> new_ages
+</span></span><span style="display:flex;"><span>print(df)
+</span></span></code></pre></div><p>Looks cleaner, runs faster, and makes you look like you really know your stuff.</p>
+<h3 id="4-pandas-to_dict">4. pandas to_dict()</h3>
+<p>If you need to convert a pandas DataFrame to a dictionary for looping through rows, you can use the <code>to_dict(&quot;records&quot;)</code> method.
+This converts each row of the DataFrame into a dictionary, with each dictionary representing a record.</p>
+<p><strong>Here’s an example:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Sample DataFrame</span>
+</span></span><span style="display:flex;"><span>data <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;Name&#39;</span>: [<span style="color:#e6db74">&#39;Alice&#39;</span>, <span style="color:#e6db74">&#39;Bob&#39;</span>, <span style="color:#e6db74">&#39;Charlie&#39;</span>],
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#39;Age&#39;</span>: [<span style="color:#ae81ff">25</span>, <span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">35</span>]}
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(data)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Convert DataFrame to a list of dictionaries</span>
+</span></span><span style="display:flex;"><span>records <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>to_dict(<span style="color:#e6db74">&#34;records&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Loop through records</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> record <span style="color:#f92672">in</span> records:
+</span></span><span style="display:flex;"><span>    print(record)
+</span></span></code></pre></div><h2 id="benchmarking-loop-methods">Benchmarking Loop Methods</h2>
+<p>Someone on Stack Overflow created a benchmark comparing different looping methods in pandas. You can see the benchmark image below for a visual representation of the performance differences. The key takeaway from the benchmark is:</p>
+<p><strong>never use <code>iterrows</code></strong>. 😄</p>
+<h3 id="benchmark-image">Benchmark Image</h3>
+<p><img src="/images/pandas-loop-benchmark.png" alt="Benchmark Image"></p>
+<h3 id="further-reading">Further Reading</h3>
+<p>For more details and the full discussion, check out the <a href="https://stackoverflow.com/questions/16476924/how-can-i-iterate-over-rows-in-a-pandas-dataframe/55557758#55557758" target="_blank">Stack Overflow thread</a>.</p>
+<p>This benchmark is like a reality check for anyone still using <code>iterrows</code>—it’s slow, it’s clunky, and it’s definitely not invited to the performance party. So, take a peek and see why you should be ditching those old-school loops in favor of faster, more efficient methods. Your code (and your sanity) will thank you!</p>
+
+  
+  <hr>
+<div class="footer">
+    
+	    
+            <a class="previous-post" href="https://xzerad.github.io/posts/functional-programming/?ref=footer"><span style="font-weight:bold;">« Previous</span><br>Functional Programming</a>
+        
+	    
+    
+</div>
+
+  
+</div>
+            </main>
+            
+  
+    <div class="article-toc ">
+    <div class="toc-wrapper">
+      <h4 id="contents"></h4>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#the-problem-with-loops-in-pandas">The Problem with Loops in Pandas</a>
+      <ul>
+        <li><a href="#example-looping-over-rows">Example: Looping Over Rows</a></li>
+        <li><a href="#timing-the-loop">Timing the Loop</a></li>
+      </ul>
+    </li>
+    <li><a href="#better-alternatives-to-loops-aka-how-to-be-fast-and-efficient">Better Alternatives to Loops (a.k.a. How to Be Fast and Efficient)</a>
+      <ul>
+        <li><a href="#1-vectorization">1. Vectorization</a></li>
+        <li><a href="#2-apply-function">2. Apply Function</a></li>
+        <li><a href="#3-list-comprehension">3. List Comprehension</a></li>
+        <li><a href="#4-pandas-to_dict">4. pandas to_dict()</a></li>
+      </ul>
+    </li>
+    <li><a href="#benchmarking-loop-methods">Benchmarking Loop Methods</a>
+      <ul>
+        <li><a href="#benchmark-image">Benchmark Image</a></li>
+        <li><a href="#further-reading">Further Reading</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+  
+
+        </div>
+    </body>
+</html>
